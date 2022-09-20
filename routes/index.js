@@ -17,10 +17,11 @@ router.put('/users/:id', UsersController.users_edit);
 router.delete('/users/:id', UsersController.users_delete);
 
 //Transactions
+
 // Create
 router.post('/transactions', TransactionsController.transaction_create);
 
-//Read
-router.get('/transactions', TransactionsController.transactions_list);
+//Read to a single user
+router.get('/transactions/:id', TransactionsController.transactions_list);
 
 module.exports = router;

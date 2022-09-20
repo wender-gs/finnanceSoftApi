@@ -41,8 +41,8 @@ exports.transaction_create = [
 ];
 
 exports.transactions_list = (req, res) => {
-  Transaction.find({ cliente: {_id: '631236b8a37c757b63124e97'}}, 'beneficiario valor')
+  Transaction.find({ cliente : { _id: req.params.id }}, 'cliente valor isPaid beneficiario data carteira')
     .exec(function (err, transaction) {
-      res.json(transaction)
+      res.json(transaction);
     })
 };
