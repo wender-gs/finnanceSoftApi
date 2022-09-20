@@ -1,7 +1,5 @@
 const Users = require('../models/users');
-const async = require('async');
 const { body, validationResult } = require("express-validator");
-
 
 exports.users_create = [
   body('username')
@@ -44,4 +42,3 @@ exports.users_edit = (req, res) => {
 exports.users_delete = (req, res) => {
   res.json({ msg: "Deleteando usuario" });
 };
-
