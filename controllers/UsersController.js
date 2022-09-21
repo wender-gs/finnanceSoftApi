@@ -30,7 +30,7 @@ exports.users_create = [
 ];
 
 exports.users_list = (req, res) => {
-  Users.find({}, "username email").exec(function (err, users) {
+  Users.find({}, "username email password").exec(function (err, users) {
     res.json(users);
   });
 };
