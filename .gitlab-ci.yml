@@ -1,4 +1,4 @@
-image: ubuntu:latest
+image: node:latest
 
 stages:          # List of stages for jobs, and their order of execution
   - build
@@ -9,6 +9,11 @@ build-job:       # This job runs in the build stage, which runs first.
   stage: build
   script:
     - npm install
+  artifacts:
+    untracked: false
+    expire_in: 30 days
+    paths:
+      - node_modules
 
 unit-test-job:   # This job runs in the test stage.
   stage: test    # It only starts when the job in the build stage completes successfully.
