@@ -8,6 +8,10 @@ const TransactionSchema = new Schema({
     ref: "Users",
     required: true
   },
+  tipo: {
+    type: String,
+    required: true
+  },
   valor: {
     type: Number,
     required: true
@@ -17,6 +21,10 @@ const TransactionSchema = new Schema({
     required: true
   },
   beneficiario: {
+    type: String,
+    required: true
+  },
+  categoria: {
     type: String,
     required: true
   },

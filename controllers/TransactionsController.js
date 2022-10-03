@@ -4,6 +4,8 @@ const Transaction = require("../models/Transaction");
 exports.transaction_create = [
   body('cliente')
     .isAlphanumeric(),
+  body('tipo')
+    .isAlphanumeric(),
   body('valor')
     .trim()
     .escape(),
@@ -18,6 +20,10 @@ exports.transaction_create = [
   body('data')
     .isDate()
     .withMessage("data invalido foi inserido"),
+  body('categoria')
+    .trim()
+    .escape()
+    .isAlphanumeric(),
   body('carteira')
     .trim()
     .escape()
@@ -27,10 +33,12 @@ exports.transaction_create = [
 
     const transaction = new Transaction({
       cliente: req.body.cliente,
+      tipo: req.body.tipo,
       valor: req.body.valor,
       isPaid: req.body.isPaid,
       beneficiario: req.body.beneficiario,
       data: req.body.data,
+      categoria: req.body.categoria,
       carteira: req.body.carteira
     })
 
@@ -41,7 +49,7 @@ exports.transaction_create = [
 ];
 
 exports.transactions_list = (req, res) => {
-  Transaction.find({ cliente : { _id: req.params.id }}, 'cliente valor isPaid beneficiario data carteira')
+  Transaction.find({ cliente : { _id: req.params.id }}, 'cliente tipo valor isPaid beneficiario data categoria carteira')
     .exec(function (err, transaction) {
       res.json(transaction);
     })
