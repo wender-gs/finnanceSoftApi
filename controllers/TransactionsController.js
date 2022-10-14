@@ -50,6 +50,7 @@ exports.transaction_create = [
 
 exports.transactions_list = (req, res) => {
   Transaction.find({ cliente : { _id: req.params.id }}, 'cliente tipo valor isPaid beneficiario data categoria carteira')
+    .sort({data: -1})
     .exec(function (err, transaction) {
       res.json(transaction);
     })
