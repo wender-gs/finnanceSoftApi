@@ -27,4 +27,7 @@ router.get('/transactions/:id', TransactionsController.transactions_list);
 // expense
 router.get('/expense/:id', TransactionsController.expense_list);
 
+// recipes
+router.get('/recipes/:id', TransactionsController.recipes_list);
+
 module.exports = router;
