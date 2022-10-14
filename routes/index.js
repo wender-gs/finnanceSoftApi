@@ -24,4 +24,7 @@ router.post('/transactions', TransactionsController.transaction_create);
 //Read to a single user
 router.get('/transactions/:id', TransactionsController.transactions_list);
 
+// expense
+router.get('/expense/:id', TransactionsController.expense_list);
+
 module.exports = router;

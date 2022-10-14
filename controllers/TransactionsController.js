@@ -54,3 +54,11 @@ exports.transactions_list = (req, res) => {
       res.json(transaction);
     })
 };
+
+exports.expense_list = (req, res) => {
+  Transaction.find({tipo: 'expense', cliente: req.params.id})
+    .sort({data: -1})
+    .exec(function (err, exp) {
+      res.json(exp);
+    })
+}
