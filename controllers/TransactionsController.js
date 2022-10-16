@@ -71,3 +71,9 @@ exports.recipes_list = (req, res) => {
       res.json(recipe)
     });
 }
+
+exports.recipes_delete = (req, res) => {
+  Transaction.deleteOne({_id: req.params.id}).exec();
+
+  res.send({success: true});
+}

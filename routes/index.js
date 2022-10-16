@@ -30,4 +30,7 @@ router.get('/expense/:id', TransactionsController.expense_list);
 // recipes
 router.get('/recipes/:id', TransactionsController.recipes_list);
 
+//delete
+router.delete('/recipes/:id', TransactionsController.recipes_delete);
+
 module.exports = router;
