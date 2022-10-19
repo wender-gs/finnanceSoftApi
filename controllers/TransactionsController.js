@@ -77,3 +77,11 @@ exports.recipes_delete = (req, res) => {
 
   res.send({success: true});
 }
+
+exports.transactions_editStatus = (req, res) => {
+  Transaction.updateOne({_id: req.params.id}, {isPaid: true}).exec(function (err, result) {
+    res.send({success: true});    
+  });
+
+  
+}
