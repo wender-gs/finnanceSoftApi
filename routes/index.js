@@ -27,6 +27,8 @@ router.get('/transactions/:id', TransactionsController.transactions_list);
 //Update status
 router.put('/transactions/:id', TransactionsController.transactions_editStatus);
 
+router.put('/transactions', TransactionsController.transaction_update);
+
 // expense
 router.get('/expense/:id', TransactionsController.expense_list);
 

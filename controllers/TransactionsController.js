@@ -79,7 +79,21 @@ exports.recipes_delete = (req, res) => {
 }
 
 exports.transactions_editStatus = (req, res) => {
-  Transaction.updateOne({_id: req.params.id}, {isPaid: true, data: new Date()}).exec(function (err, result) {
-    res.send({success: true});    
-  });  
+  Transaction.updateOne({_id: req.params.id}, {isPaid: true, data: new Date()})
+    .exec(function (err, result) {
+      res.send({success: true});    
+    });  
 }
+
+exports.transaction_update = (req, res) => {
+  Transaction.updateOne({_id: req.body.id}, {
+    valor: req.body.valor,
+    isPaid: req.body.isPaid,
+    beneficiario: req.body.beneficiario,
+    data: req.body.data,
+    categoria: req.body.categoria,
+    carteira: req.body.carteira
+  }).exec(function(err, result){
+    res.json({status: "success"})
+  });
+};
