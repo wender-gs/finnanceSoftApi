@@ -97,3 +97,10 @@ exports.transaction_update = (req, res) => {
     res.json({status: "success"})
   });
 };
+
+exports.transaction_for_date = (req, res) => {
+  Transaction.find({cliente: req.params.id, data: {$gte: new Date(`2022-${req.params.month}-01`), $lte: new Date(`2022-${req.params.month}-31`)}})
+    .exec(function (err, transaction) {
+      res.json(transaction);
+    });
+};

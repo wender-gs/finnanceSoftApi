@@ -8,7 +8,7 @@ const mongoose = require('mongoose');
 const app = express();
 
 // criando conexão com o banco de dados
-const mongoDB = "mongodb+srv://expctrl:wender.624468@expense-control.uuktvmf.mongodb.net/?retryWrites=true&w=majority";
+const mongoDB = "mongodb://localhost:27017/expenseControl" // "mongodb+srv://expctrl:wender.624468@expense-control.uuktvmf.mongodb.net/?retryWrites=true&w=majority";
 mongoose.connect(mongoDB, { 
   useNewUrlParser: true, 
   useUnifiedTopology: true
