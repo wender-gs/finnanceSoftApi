@@ -9,6 +9,7 @@ const app = express();
 
 // criando conexão com o banco de dados
 const mongoDB = "mongodb+srv://expctrl:wender.624468@expense-control.uuktvmf.mongodb.net/?retryWrites=true&w=majority";
+
 mongoose.connect(mongoDB, { 
   useNewUrlParser: true, 
   useUnifiedTopology: true
