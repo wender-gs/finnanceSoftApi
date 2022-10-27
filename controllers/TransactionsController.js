@@ -31,6 +31,8 @@ exports.transaction_create = [
   (req, res) => {
     const errors = validationResult(req);
 
+    console.log(req.body);
+
     const transaction = new Transaction({
       cliente: req.body.cliente,
       tipo: req.body.tipo,
@@ -103,4 +105,27 @@ exports.transaction_for_date = (req, res) => {
     .exec(function (err, transaction) {
       res.json(transaction);
     });
+};
+
+exports.pagination = (req, res) => {
+  if (req.params.type === 'all') {
+    Transaction.find({cliente: req.params.id})
+    .sort({data: -1})
+    .skip(req.params.skip)
+    .limit(req.params.limit)
+    .exec((err, transaction) => {
+      res.send(transaction);
+    })
+  }
+
+  if (req.params.type === 'recipe' || req.params.type === 'expense') {
+    Transaction.find({cliente: req.params.id, tipo: req.params.type})
+    .sort({data: -1})
+    .skip(req.params.skip)
+    .limit(req.params.limit)
+    .exec((err, transaction) => {
+      res.send(transaction);
+    })
+  }
+  
 };

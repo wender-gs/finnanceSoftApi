@@ -41,4 +41,7 @@ router.delete('/recipes/:id', TransactionsController.recipes_delete);
 
 router.get('/transactionsmonth/:id/:month', TransactionsController.transaction_for_date);
 
+//limit
+router.get('/getTransactionPagination/:id/:limit/:skip/:type', TransactionsController.pagination);
+
 module.exports = router;
